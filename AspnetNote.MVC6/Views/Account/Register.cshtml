@@ -1,6 +1,33 @@
-﻿@page
-@model AspnetNote.MVC6.Views.Account.RegisterModel
-@{
-}
-<!--강의에서 위에건 삭제했다.-->
+﻿@model AspnetNote.MVC6.Models.User 
+<!--위에 razor syntax로 User 모델을 명시해야만 밑에서 asp-for="UserId" 처럼 UserId가 어디에 있는지 표시한다.-->
 <h2>회원가입</h2>
+
+<form class="form-horizontal" method="post" asp-controller="Account" asp-action="Register">
+    <!--AccountController 의 Register에 post 방식으로 전송 -->
+
+    <!--넘어온 model이 사용자 id인지 비밀번호인지 무엇인지 판단하기 위해선 asp-for를 사용한다 -->
+
+    <div class="form-group">
+        <label>사용자 ID</label>
+        <input type="text" class="form-control" asp-for="UserId" placeholder="사용자 id를 입력하세요" />
+        <span class="text-danger" asp-validation-for="UserId"></span>
+    </div>
+
+    <div class="form-group">
+        <label>사용자 비밀번호</label>
+        <input type="password" class="form-control" asp-for="UserPassword" placeholder="사용자 비밀번호를 입력하세요" />
+        <span class="text-danger" asp-validation-for="UserPassword"></span>
+    </div>
+
+    <div class="form-group">
+        <label>사용자 이름</label>
+        <input type="text" class="form-control" asp-for="UserName" placeholder="사용자 이름을 입력하세요" />
+        <span class="text-danger" asp-validation-for="UserName"></span>
+    </div>
+
+    <div class="form-group">
+        <!--form 태그안에 button 태그 있고 type이 submit 이면 해당 form을 전송한다.-->
+        <button type="submit" class="btn btn-primary">회원가입</button>
+        <a class="btn btn-warning" href="#">취소</a>
+    </div>
+</form>
