@@ -14,19 +14,19 @@ namespace AspnetNote.MVC6.Models
         /// <summary>
         /// 사용자 이름
         /// </summary>
-        [Required]  // Not NULL 설정 (NULL 설정해줄때는 [Required] 안써주면 된다.)
+        [Required(ErrorMessage ="사용자 이름을 입력하세요")]  // Not NULL 설정 (NULL 설정해줄때는 [Required] 안써주면 된다.)
         public string UserName { get; set; }
 
         /// <summary>
         /// 사용자 ID
         /// </summary>
-        [Required]  // Not NULL 설정
+        [Required(ErrorMessage = "사용자 ID를 입력하세요")]  // Not NULL 설정
         public string UserId { get; set; }
 
         /// <summary>
         /// 사용자 비밀번호
         /// </summary>
-        [Required]  // Not NULL 설정
-        public int UserPassword { get; set; }
+        [Required(ErrorMessage = "사용자 비밀번호를 입력하세요")]  // Not NULL 설정
+        public string UserPassword { get; set; }
     }
 }
